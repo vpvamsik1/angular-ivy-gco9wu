@@ -32,11 +32,13 @@ export class AppComponent implements OnInit {
         complete: () => console.log('complete'),
       });
 
-    // of('Apple 1', 'Apple 2', 'Apple 3').subscribe({
-    //   next: (apple) => console.log(`Apple emitted ${apple}`),
-    //   error: (err) => console.log(`Error occurred: ${err}`),
-    //   complete: () => console.log(`No more apples, go home`),
-    // });
+    of('Apple 1', 'Apple 2', 'Apple 3')
+      .pipe(map((item) => item + ' hello'))
+      .subscribe({
+        next: (apple) => console.log(`Apple emitted ${apple}`),
+        error: (err) => console.log(`Error occurred: ${err}`),
+        complete: () => console.log(`No more apples, go home`),
+      });
 
     // from(['Apple 4', 'Apple 5', 'Apple 6']).subscribe({
     //   next: (apple) => console.log(`Apple emitted ${apple}`),
